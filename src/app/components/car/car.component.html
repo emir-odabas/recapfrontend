@@ -5,18 +5,22 @@
 <table *ngIf="dataLoaded == true" class="table">
   <thead>
     <tr>
-      <th>asdasd</th>
-      <th>asdasd</th>
-      <th>asdasd</th>
-      <th>asdasd</th>
+      <th>Araç Id</th>
+      <th>Brand Id</th>
+      <th>Color Id</th>
+      <th>Model Year</th>
+      <th>Daily Price</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>asdasd</td>
-      <td>asdasd</td>
-      <td>asdasd</td>
-      <td>asdasd</td>
+    <tr *ngFor="let car of cars">
+      <td>{{ car.carId }}</td>
+      <td>{{ car.brandId }}</td>
+      <td>{{ car.colorId }}</td>
+      <td>{{ car.modelYear }}</td>
+      <td>{{ car.dailyPrice }}</td>
+      <td>{{ car.description }}</td>
     </tr>
   </tbody>
 </table>
