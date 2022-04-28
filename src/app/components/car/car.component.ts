@@ -11,6 +11,7 @@ import { CarService } from 'src/app/services/car.service';
 export class CarComponent implements OnInit {
 
   cars: Car[] = [];
+  currentCar: Car;
   dataLoaded = false;
 
   constructor(private carService: CarService,
@@ -43,10 +44,26 @@ export class CarComponent implements OnInit {
     })
   }
 
+  getCarsByImage(carId: number) {
+    this.carService.getCarImagesByCarId(carId).subscribe(response => {
+      this.cars = response.data
+      this.dataLoaded = true;
+    })
+  }
+
   getCarsByColorId(colorId: number) {
     this.carService.getCarsByColorId(colorId).subscribe(response => {
       this.cars = response.data
       this.dataLoaded = true;
     })
   }
+
+  setCurrentCar(car: Car) {
+    this.currentCar = car;
+  }
+
+  getCurrentCarClass(car: Car) {
+    return (this.currentCar == car) ? 'list-group-item active' : 'list-group-item';
+  }
+
 }
