@@ -9,7 +9,9 @@ import { ColorComponent } from './components/color/color.component';
 import { CustomerComponent } from './components/customer/customer.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CarImageComponent } from './components/car-image/car-image.component';
+import { CardetailComponent } from './components/car-detail/car-detail.component';
+import { VatAddedPipe } from './pipes/vat-added.pipe';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { CarImageComponent } from './components/car-image/car-image.component';
     ColorComponent,
     CustomerComponent,
     NaviComponent,
-    CarImageComponent
+    CardetailComponent,
+
+    VatAddedPipe,
   ],
   imports: [
     BrowserModule,

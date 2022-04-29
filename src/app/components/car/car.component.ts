@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Car } from 'src/app/models/car';
+import { CarDetail } from 'src/app/models/carDetail';
 import { CarService } from 'src/app/services/car.service';
 
 @Component({
@@ -35,7 +36,9 @@ export class CarComponent implements OnInit {
       this.cars = response.data
       this.dataLoaded = true;
     })
+
   }
+
 
   getCarsByBrandId(brandId: number) {
     this.carService.getCarsbyBrandId(brandId).subscribe(response => {
@@ -44,12 +47,7 @@ export class CarComponent implements OnInit {
     })
   }
 
-  getCarsByImage(carId: number) {
-    this.carService.getCarImagesByCarId(carId).subscribe(response => {
-      this.cars = response.data
-      this.dataLoaded = true;
-    })
-  }
+
 
   getCarsByColorId(colorId: number) {
     this.carService.getCarsByColorId(colorId).subscribe(response => {
@@ -58,12 +56,27 @@ export class CarComponent implements OnInit {
     })
   }
 
-  setCurrentCar(car: Car) {
-    this.currentCar = car;
+  path = "https://localhost:44361/Uploads/";
+
+
+
+  SetImage(car: CarDetail) {
+    if (car.imagePath.length > 0) {
+      return `${this.path}${car.imagePath}`;
+    } else {
+      return `${this.path}DefaultImage.jpg`;
+    }
   }
 
-  getCurrentCarClass(car: Car) {
-    return (this.currentCar == car) ? 'list-group-item active' : 'list-group-item';
-  }
+
+
+
+
+
+
+
+
+
+
 
 }
