@@ -11,6 +11,9 @@ import { NaviComponent } from './components/navi/navi.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CardetailComponent } from './components/car-detail/car-detail.component';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
+import { CarImageComponent } from './components/car-image/car-image.component';
+import { FilterPipePipe } from './pipes/filter-pipe.pipe';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,12 +24,15 @@ import { VatAddedPipe } from './pipes/vat-added.pipe';
     ColorComponent,
     CustomerComponent,
     NaviComponent,
+    CarImageComponent,
     CardetailComponent,
-
     VatAddedPipe,
+    CarImageComponent,
+    FilterPipePipe,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule
   ],

@@ -1,7 +1,11 @@
 
 
 export interface CarDetail {
-    id: number,
+    carId: number,
+
+    brandId: number,
+
+    colorId: number,
 
     description: string,
 
@@ -15,7 +19,7 @@ export interface CarDetail {
 
     imageId: number,
 
-    imagePath: string,
+    imagePath: string[],
 
     date: Date
 }
