@@ -12,7 +12,7 @@
 <div class="row">
   <div class="col-md-4">
     <select
-      [(ngModel)]="branddFilter"
+      [(ngModel)]="brandFilter"
       class="form-select"
       aria-label="marka seç"
     >
@@ -24,7 +24,7 @@
   </div>
   <div class="col-md-4">
     <select
-      [(ngModel)]="colorrFilter"
+      [(ngModel)]="colorFilter"
       class="form-select"
       aria-label="Default select example"
     >
@@ -36,7 +36,7 @@
   </div>
   <div class="col-md-3">
     <button
-      routerLink="/cars/color/{{ colorrFilter }}/brand/{{ branddFilter }}"
+      routerLink="/colors/{{ colorFilter }}/brands/{{ brandFilter }}"
       style="width: 100%"
       class="btn btn-outline-dark"
       type="button"
@@ -46,7 +46,7 @@
   </div>
 </div>
 
-<table *ngIf="dataLoaded == true" class="table">
+<!-- <table *ngIf="dataLoaded == true" class="table">
   <thead>
     <tr>
       <th>Araç Id</th>
@@ -67,7 +67,7 @@
       <td>{{ car.description }}</td>
     </tr>
   </tbody>
-</table>
+</table> -->
 
 <div class="row mt-4" style="margin-left: 1%">
   <div
@@ -77,6 +77,7 @@
   >
     <img
       *ngIf="car.imagePath"
+      -
       [src]="baseUrl + car.imagePath"
       class="card-img-top"
       style="object-fit: cover"
@@ -97,7 +98,7 @@
     <div class="card-body">
       <h5 class="card-title">{{ car.brandName }}</h5>
     </div>
-    <ul class="list-group list-group-flush">
+    <ul class="list-group">
       <li class="list-group-item">Model yılı: {{ car.modelYear }}</li>
       <li class="list-group-item">Renk adı: {{ car.colorName }}</li>
       <li class="list-group-item">Marka adı: {{ car.brandName }}</li>
@@ -109,7 +110,7 @@
         <button
           type="button"
           class="btn btn-outline-success"
-          routerLink="/cars/getCarDetails/{{ car.brandName }}"
+          routerLink="/cars/getcardetails/{{ car.brandName }}"
         >
           Araba Detay
         </button>

@@ -8,7 +8,7 @@ import { ListResponseModel } from '../models/listResponseModel';
 @Injectable({
   providedIn: 'root'
 })
-export class CardetailService {
+export class CarDetailService {
 
   constructor(private httpClient: HttpClient) { }
 

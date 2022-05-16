@@ -11,7 +11,7 @@ import { CarImageService } from 'src/app/services/car-image.service';
 })
 export class CarImageComponent implements OnInit {
   carImages: CarImage[] = [];
-  baseUrl = "https://localhost:44361/Uploads/Images"
+  baseUrl = "https://localhost:44361/Uploads/Images/"
   constructor(private carImageService: CarImageService, private activedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {

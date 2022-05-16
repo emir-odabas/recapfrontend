@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,8 +14,9 @@ import { CardetailComponent } from './components/car-detail/car-detail.component
 import { VatAddedPipe } from './pipes/vat-added.pipe';
 import { CarImageComponent } from './components/car-image/car-image.component';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -29,12 +31,15 @@ import { FormsModule } from '@angular/forms';
     VatAddedPipe,
     CarImageComponent,
     FilterPipePipe,
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

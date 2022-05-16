@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Brand } from 'src/app/models/brand';
+import { Car } from 'src/app/models/car';
 
 
 import { CarDetail } from 'src/app/models/carDetail';
@@ -9,7 +10,7 @@ import { Color } from 'src/app/models/color';
 import { CarImage } from 'src/app/models/image';
 import { BrandService } from 'src/app/services/brand.service';
 
-import { CardetailService } from 'src/app/services/car-detail.service';
+import { CarDetailService } from 'src/app/services/car-detail.service';
 import { CarImageService } from 'src/app/services/car-image.service';
 
 import { CarService } from 'src/app/services/car.service';
@@ -22,27 +23,27 @@ import { ColorService } from 'src/app/services/color.service';
 })
 export class CarComponent implements OnInit {
 
-  cars: CarDetail[] = [];
-  carImages: CarImage[] = [];
+  cars: CarDetail[];
+  carImages: CarImage[];
+
   baseUrl = "https://localhost:44361/Uploads/Images/"
   imagePath: string;
-  dataLoaded = false;
+
 
   filterText = "";
   brands: Brand[] = [];
   colors: Color[] = [];
+
   brandFilter: number = 0;
   colorFilter: number = 0;
-  branddFilter: number = 0;
-  colorrFilter: number = 0;
   cardetailFilter = '';
 
   constructor(private carService: CarService,
     private activatedRoute: ActivatedRoute,
-    private carDetailService: CardetailService,
     private carImageService: CarImageService,
     private colorService: ColorService,
-    private brandService: BrandService) { }
+    private brandService: BrandService,
+    private carDetailService: CarDetailService) { }
 
   ngOnInit(): void {
     this.getBrands();
@@ -56,8 +57,13 @@ export class CarComponent implements OnInit {
       }
       else {
         this.getCars();
+        this.getCarDetails();
+        this.image;
       }
     })
+  }
+  getCarDetails() {
+    this.carDetailService.getCarDetails().subscribe(response => { this.cars = response.data })
   }
 
   getCars() {
@@ -82,15 +88,25 @@ export class CarComponent implements OnInit {
     })
   }
 
-  getSelectedBrand(brandId: number) {
-    debugger;
-    if (this.brandFilter == brandId) return true;
-    else return false;
-  }
+  // getSelectedBrand(brandId: number) {
+  //   debugger;
+  //   if (this.brandFilter == brandId) return true;
+  //   else return false;
+  // }
 
-  getSelectedColor(colorId: number) {
-    if (this.colorFilter == colorId) return true;
-    else return false;
+  // getSelectedColor(colorId: number) {
+  //   if (this.colorFilter == colorId) return true;
+  //   else return false;
+  // }
+
+  addToCard(car: Car) {
+    // if (product.productId === 1) {
+    //   this.toastrService.error("Hata", "Bu ürün sepete eklenemez")
+    // } else {
+    //   this.toastrService.success("sepete eklendi", product.productName)
+    // }
+    this.toastrService.success("sepete eklendi", car.description)
+    this.cartService.addToCart(car);
   }
 
   image(carId: number) {

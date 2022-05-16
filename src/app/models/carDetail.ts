@@ -1,5 +1,4 @@
 
-
 export interface CarDetail {
     carId: number,
 
