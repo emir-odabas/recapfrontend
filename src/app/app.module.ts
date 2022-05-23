@@ -16,7 +16,7 @@ import { CarImageComponent } from './components/car-image/car-image.component';
 import { FilterPipePipe } from './pipes/filter-pipe.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
-import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [

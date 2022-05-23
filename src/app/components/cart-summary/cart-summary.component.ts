@@ -10,20 +10,15 @@ import { CarService } from 'src/app/services/car.service';
 export class CartSummaryComponent implements OnInit {
 
 
-  cartItems: CartItem[];
 
-  constructor(private cartService: CarService, private toastrService: ) { }
+
+  constructor(private cartService: CarService,) { }
 
   ngOnInit(): void {
-    this.cartItems = this.cartService.list();
+
   }
 
-  removeFromCart(car: Car) {
-    this.cartService.removeFromCart(car);
-    this.toastrService.error("Silindi", car.description + "Sepetten silindi.")
-  }
 
-  getCart() {
-    this.cartItems = this.cartService.list();
-  }
+
+
 }

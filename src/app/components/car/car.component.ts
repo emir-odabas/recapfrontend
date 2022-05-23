@@ -105,8 +105,7 @@ export class CarComponent implements OnInit {
     // } else {
     //   this.toastrService.success("sepete eklendi", product.productName)
     // }
-    this.toastrService.success("sepete eklendi", car.description)
-    this.cartService.addToCart(car);
+
   }
 
   image(carId: number) {

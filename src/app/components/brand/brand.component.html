@@ -10,7 +10,7 @@
   </div>
   <div class="card-body">
     <ul *ngIf="dataLoaded" class="list-group">
-      <li routerLink="/cars" class="list-group-item">ALL CARS</li>
+      <li routerLink="/cars" class="list-group-item">ALL BRANDS</li>
       <li
         (click)="setCurrentBrand(brand)"
         routerLink="/cars/brands/{{ brand.brandId }}"

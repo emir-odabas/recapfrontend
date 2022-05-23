@@ -23,14 +23,14 @@ export class AddToCartService {
     }
   }
 
-  removeFromCart(car: Car) {
-    let item: CartItem = CartItems.find(c => c.car.carId === car.carId);
-    CartItems.splice(CartItems.indexOf(item), 1);
+  //   removeFromCart(car: Car) {
+  //     let item: CartItem = CartItems.find(c => c.car.carId === car.carId);
+  //     CartItems.splice(CartItems.indexOf(item), 1);
 
 
-  }
+  //   }
 
-  list(): CartItem {
-    return CartItems;
-  }
+  //   list(): CartItem {
+  //     return CartItems;
+  //   }
 }
